@@ -14,6 +14,48 @@
       <input id="message-input" type="text" name="message" />
       <button type="submit">送信</button>
     </form>
+    <script>
+      // ランダムな色を生成する関数
+      function getRandomColor1() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 3; i++) {
+          color += letters[Math.floor(Math.random() * 6 + 10)];
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      // ランダムな色を生成する関数
+      function getRandomColor2() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 3; i++) {
+          color += letters[Math.floor(Math.random() * 6 + 4)];
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      // 背景色をランダムに設定する関数
+      function setRandomBackgroundColor() {
+        document.body.style.backgroundColor = getRandomColor1();
+      }
+
+      // 文字色をランダムに設定する関数
+      function setRandomTextColor() {
+        const elements = document.querySelectorAll('h1, ul, input, button');
+        elements.forEach(element => {
+          element.style.color = getRandomColor2();
+        });
+      }
+
+      // ページが読み込まれた時に背景色と文字色を設定
+      window.onload = function() {
+        setRandomBackgroundColor();
+        setRandomTextColor();
+      };
+    </script>
     <script src="/script.js"></script>
   </body>
 </html>
